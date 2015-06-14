@@ -1,6 +1,11 @@
-$body-bg:   #95a5a6;
-$navbar-inverse-bg:  #7f8c8d;
-$navbar-inverse-link-color:    white;
-$jumbotron-bg:   #e74c3c;
+$body-bg:                       white;
+$navbar-inverse-bg:             #7f8c8d;
+$navbar-inverse-link-color:     white;
+$jumbotron-bg:                  #bdc3c7;
+$jumbotron-color:               #e74c3c;
+
+.center {
+  text-align: center;
+}
 @import "bootstrap-sprockets";
 @import "bootstrap";
