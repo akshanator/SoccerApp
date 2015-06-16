@@ -1,7 +1,9 @@
 <div class="jumbotron center">
   <h1>Welcome to RealFootball</h1>
   <% if user_signed_in? %>
-
+    <p>
+      <%= link_to "New Post", new_post_path, class: "btn btn-danger btn-lg" %> 
+    </p>
   <% else %>
     <p>
       <%= link_to "Log In", new_user_session_path, class: "btn btn-danger btn-lg" %>
