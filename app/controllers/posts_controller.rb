@@ -10,14 +10,14 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
 
   def edit
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
       if @post.save
         redirect_to @post, notice: 'Post was successfully created.'
       else
@@ -47,6 +47,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:description)
+      params.require(:post).permit(:description, :user_id)
     end
 end
