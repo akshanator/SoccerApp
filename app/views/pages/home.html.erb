@@ -2,7 +2,11 @@
   <h1>Welcome to RealFootball</h1>
   <% if user_signed_in? %>
     <p>
-      <%= link_to "New Post", new_post_path, class: "btn btn-danger btn-lg" %> 
+      <%= link_to "New Post", new_post_path, class: "btn btn-danger btn-lg" %>
+      <% if current_user.admin? %>
+        <%= link_to "New Player", new_player_path, class: "btn btn-danger btn-lg" %>
+        <%= link_to "New Team", new_team_path, class: "btn btn-danger btn-lg" %>
+      <% end %>
     </p>
   <% else %>
     <p>
