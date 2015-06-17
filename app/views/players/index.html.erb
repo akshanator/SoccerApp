@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Players</h1>
+<h1>All Players</h1>
 
 <table>
   <thead>
@@ -13,8 +13,10 @@
     <% @players.each do |player| %>
       <tr>
         <td><%= link_to 'Show', player %></td>
-        <td><%= link_to 'Edit', edit_player_path(player) %></td>
-        <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.admin? %>
+          <td><%= link_to 'Edit', edit_player_path(player) %></td>
+          <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Player', new_player_path %>
+<%= link_to 'New Player', new_player_path, class: "btn btn-danger" %>
