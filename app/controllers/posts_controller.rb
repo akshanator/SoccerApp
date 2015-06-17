@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
     @posts = Post.all
@@ -9,14 +10,14 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = current_user.posts.build
+    @post = Post.new
   end
 
   def edit
   end
 
   def create
-    @post = current_user.posts.build(post_params)
+    @post = Post.new(post_params)
       if @post.save
         redirect_to @post, notice: 'Post was successfully created.'
       else
