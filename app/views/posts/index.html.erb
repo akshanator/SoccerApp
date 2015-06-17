@@ -16,9 +16,13 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.description %></td>
-        <td><%= post.user_id %></td
+        <td><%= post.user.email if post.user %></td>
         <td><%= image_tag post.image.url %></td>
         <td><%= link_to 'Show', post, class: "btn btn-danger" %></td>
+        <% if post.user == current_user %>
+          <td> <%= link_to 'Edit', edit_post_path(post), class: "btn btn-danger" %> </td>
+          <td> <%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %> </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +30,6 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path, class: "btn btn-danger" %>
+<% if user_signed_in? %>
+  <%= link_to 'New Post', new_post_path, class: "btn btn-danger" %>
+<% end %>
