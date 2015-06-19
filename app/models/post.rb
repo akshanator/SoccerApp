@@ -4,5 +4,5 @@ class Post < ActiveRecord::Base
   belongs_to :user
 
   has_attached_file :picture
-  validates_attachment_content_type :picture, :content_type => ["picture/jpg", "picture/jpeg", "picture/png", "picture/gif"]
+  do_not_validate_attachment_file_type :picture
 end

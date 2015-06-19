@@ -1,9 +1,9 @@
 <div id="posts">
   <% @posts.each do |post| %>
     <div class"box">
+      <%= image_tag post.picture.url %>
       <%= post.description %>
       <%= post.user.email if post.user %>
-      <%= image_tag post.picture.url %>
       <%= link_to 'Show', post, class: "btn btn-danger" %>
       <% if post.user == current_user %>
         <%= link_to 'Edit', edit_post_path(post), class: "btn btn-danger" %>
