@@ -3,6 +3,6 @@ class Post < ActiveRecord::Base
   belongs_to :team
   belongs_to :user
 
-  has_attached_file :image
-  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+  has_attached_file :picture
+  validates_attachment_content_type :picture, :content_type => ["picture/jpg", "picture/jpeg", "picture/png", "picture/gif"]
 end
