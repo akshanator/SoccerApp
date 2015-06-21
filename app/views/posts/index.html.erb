@@ -1,6 +1,6 @@
-<div id="posts">
+<div id="posts", class="transitions-enabled">
   <% @posts.each do |post| %>
-    <div class"box">
+    <div class="box panel panel-default">
       <%= image_tag post.picture.url %>
       <%= post.description %>
       <%= post.user.email if post.user %>
