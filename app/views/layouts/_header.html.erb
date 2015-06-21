@@ -14,18 +14,28 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li> <%= link_to "Home", root_path %> </li>
-        <li> <%= link_to "About", about_path %> </li>
-        <li> <%= link_to "Account Settings", edit_user_registration_path %> </li>
+        <%= link_to root_path do %>
+          <button type="button" class="btn btn-primary navbar-btn">Home</button>
+        <% end %>
+        <%= link_to about_path do %>
+          <button type="button" class="btn btn-primary navbar-btn">About</button>
+        <% end %>
+        <%= link_to edit_user_registration_path do %>
+          <button type="button" class="btn btn-primary navbar-btn">Account Settings</button>
+        <% end %>
         <% if user_signed_in? %>
-          <li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete %> </li>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <button type="button" class="btn btn-primary navbar-btn">Sign Out</button>
+          <% end %>
           <li>
             <%= link_to new_post_path do %>
               <span class="glyphicon glyphicon-plus"></span> New Post
             <% end %>
           </li>
         <% else %>
-          <li> <%= link_to "Sign In", new_user_session_path %> </li>
+          <%= link_to new_user_session_path do %>
+            <button type="button" class="btn btn-primary navbar-btn">Sign In</button>
+          <% end %>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
